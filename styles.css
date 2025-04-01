@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
     --grey-500: hsl(234, 12%, 34%);
     --grey-400: hsl(212, 6%, 44%);
@@ -6,11 +7,181 @@
     --cyan: hsl(180, 62%, 55%);
     --blue: hsl(212, 86%, 64%);
     --orange: hsl(34, 97%, 64%);
+
+    --spacing-500: 40px;
+    --spacing-400: 32px;
+    --spacing-300: 24px;
+    --spacing-200: 16px;
+    --spacing-100: 8px;
+}
+/* Poppins Semibold, large */
+.text-preset-1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    line-height: 140%;
+    letter-spacing: 0.25px;
+    font-weight: 600;
+}
+/* Poppins Extra Light */
+.text-preset-2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    line-height: 140%;
+    letter-spacing: 0.25px;
+    font-weight: 200;
+}
+/* Poppins Semibold, medium */
+.text-preset-3, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 135%;
+    letter-spacing: 0px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+/* Poppins Regular, medium */
+.text-preset-4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0px;
+    font-weight: 400;
+}
+/* Poppins Regular, small */
+.text-preset-5, .card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 160%;
+    letter-spacing: 0px;
+    font-weight: 400;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-color: #FAFAFA;
+    color: var(--grey-500);
+    width: 100vw;
+}
+main {
+    width: 100%;
+    padding: var(--spacing-400);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-500);
+}
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+}
+article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+}
+.card {
+    background-color: var(--white);
+    border-top: 4px solid;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+    padding: var(--spacing-400);
+    box-shadow: 0 15px 30px hsla(213, 47%, 67%, 50%);
+}
+.card img {
+    height: 64px;
+    width: 64px;
+    align-self: flex-end;
+}
+#supervisor {
+    border-color: var(--cyan);
+}
+#team-builder {
+    border-color: var(--red);
+}
+#karma {
+    border-color: var(--orange);
+}
+#calculator {
+    border-color: var(--blue);
 }
 .attribution { 
     font-size: 11px; 
     text-align: center; 
+    margin-bottom: 20px;
 }
 .attribution a { 
-    color: hsl(228, 45%, 44%); 
+    color: var(--blue); 
+}
+@media screen and (min-width: 768px) {
+    .text-preset-1, .text-preset-2 {
+        font-size: 36px;
+    }
+    main {
+        padding: 54px;
+        gap: 74px;
+    }
+    article {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            ". . supervisor supervisor supervisor supervisor . ."
+            "team team team team karma karma karma karma"
+            ". . calc calc calc calc . ."
+    }
+    header {
+        width: 540px;
+    }
+    .card {
+        height: 250px;
+        width: 314px;
+    }
+    #supervisor {
+        grid-area: supervisor;
+    }
+    #team-builder {
+        grid-area: team;
+    }
+    #karma {
+        grid-area: karma;
+    }
+    #calculator {
+        grid-area: calc;
+    }
+
+}
+@media screen and (min-width: 1440px) {
+    body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    main {
+        margin: 0;
+        gap: 74px;
+    }
+    article {
+        grid-template-columns: auto;
+        grid-template-areas:
+            ". team ."
+            "supervisor team calc"
+            "supervisor karma calc"
+            ". karma ."
+    }
+    .card {
+        width: 350px;
+        height: 250px;
+    }
 }
